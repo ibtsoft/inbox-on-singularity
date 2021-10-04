@@ -21,7 +21,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "com.ibtsoft.inbox.main.SocketIoServerApplication"
+    mainClassName = "com.ibtsoft.inbox.main.InboxSocketIoApplication"
 }
 
 tasks.jar {

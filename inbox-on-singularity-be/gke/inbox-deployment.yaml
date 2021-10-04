@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inbox-deployment
+spec:
+  selector:
+    matchLabels:
+      app: inbox-be
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: inbox-be
+    spec:
+      containers:
+        - name: inbox-on-singularity-be
+          image: "eu.gcr.io/angular-axle-102013/inbox-on-singularity-be@sha256:752d3f06d03be22757e0cee6eb5751c278573d9178cc9dfe36bce87c01285e05"

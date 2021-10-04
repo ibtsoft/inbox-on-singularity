@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: inbox-managed-cert
+spec:
+  domains:
+    - inbox.tykhonov.com
+    - www.inbox.tykhonov.com

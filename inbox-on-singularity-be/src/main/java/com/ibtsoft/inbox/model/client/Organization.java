@@ -1,11 +1,21 @@
 package com.ibtsoft.inbox.model.client;
 
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import com.google.common.collect.ImmutableList;
 import com.ibtsoft.singularity.core.Entity;
+import com.ibtsoft.singularity.core.EntityValue;
 
 public class Organization {
 
+    public Organization(String name) {
+        this.name = name;
+        this.mailBoxes = new CopyOnWriteArrayList<>();
+    }
+
     private String name;
-    private Entity<MailBox> mailBoxes;
+    private List<Entity<MailBox>> mailBoxes;
 
     public String getName() {
         return name;
@@ -15,11 +25,11 @@ public class Organization {
         this.name = name;
     }
 
-    public Entity<MailBox> getMailBoxes() {
-        return mailBoxes;
+    public List<Entity<MailBox>> getMailBoxes() {
+        return ImmutableList.copyOf(mailBoxes);
     }
 
-    public void setMailBoxes(Entity<MailBox> mailBoxes) {
-        this.mailBoxes = mailBoxes;
+    public void addMailBox(EntityValue<MailBox> mailBox) {
+        mailBoxes.add(mailBox);
     }
 }
