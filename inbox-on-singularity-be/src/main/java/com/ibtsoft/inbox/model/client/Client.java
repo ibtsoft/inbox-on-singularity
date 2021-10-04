@@ -20,4 +20,12 @@ public class Client {
     public Entity<User> getUser() {
         return user;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Client{");
+        sb.append("name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

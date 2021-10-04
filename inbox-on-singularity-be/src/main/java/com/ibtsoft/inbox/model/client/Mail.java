@@ -31,4 +31,15 @@ public class Mail {
     public String getBody() {
         return body;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Mail{");
+        sb.append("sender=").append(sender);
+        sb.append(", addressee=").append(addressee);
+        sb.append(", subject='").append(subject).append('\'');
+        sb.append(", body='").append(body).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
