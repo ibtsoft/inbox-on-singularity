@@ -85,12 +85,12 @@ describe("pigeon socket.io API", () => {
                 referenceId: 2
             },
             payload: {
-                repositories: ["Mail"]
+                repositories: ["Mail", "Organization", "MailBox", "Folder"]
             }
         }
 
         clientSocket.on("REPOSITORY", (arg) => {
-            console.log(arg)
+            
             const response = JSON.parse(arg);
             assert.equal(response.module, "REPOSITORY");
             assert.equal(response.type, "SYNC");
@@ -137,10 +137,12 @@ describe("pigeon socket.io API", () => {
             const response = JSON.parse(arg);
 
             assert.equal(response.module, "REPOSITORY");
-            assert.equal(response.type, "ADD");
-
-            assert.equal(response.payload.Mail.value.subject, sendMailMessage.payload.params.subject);
-            isNewMailReceived = true;
+            
+            if(response.payload.Mail) {
+                assert.equal(response.type, "ADD");
+                assert.equal(response.payload.Mail.value.subject, sendMailMessage.payload.params.subject);
+                isNewMailReceived = true;    
+            }
             if (isSuccessReceived && isNewMailReceived) done();
         });
 

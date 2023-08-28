@@ -8,11 +8,3 @@ buildscript {
         classpath("gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.3.0")
     }
 }
-
-allprojects {
-
-}
-
-subprojects {
-    version = "1.0"
-}

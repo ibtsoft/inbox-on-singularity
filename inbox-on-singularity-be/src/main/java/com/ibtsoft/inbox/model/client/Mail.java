@@ -1,6 +1,6 @@
 package com.ibtsoft.inbox.model.client;
 
-import com.ibtsoft.singularity.core.Entity;
+import com.ibtsoft.singularity.core.repository.entity.Entity;
 
 public class Mail {
 

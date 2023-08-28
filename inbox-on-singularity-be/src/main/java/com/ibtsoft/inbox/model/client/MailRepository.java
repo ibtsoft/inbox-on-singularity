@@ -1,13 +1,12 @@
 package com.ibtsoft.inbox.model.client;
 
-import com.ibtsoft.singularity.core.Persistence;
-import com.ibtsoft.singularity.core.Repository;
+import com.ibtsoft.singularity.core.persistence.Persistence;
+import com.ibtsoft.singularity.core.repository.Repository;
+import com.ibtsoft.singularity.core.repository.reflection.entitystructure.EntityStructureCache;
 
 public class MailRepository extends Repository<Mail> {
 
-    public MailRepository(Class<Mail> repositoryClass, Persistence<Mail> persistence) {
-        super(repositoryClass, persistence);
+    public MailRepository(EntityStructureCache entityStructureCache, Persistence<Mail> persistence) {
+        super(Mail.class, entityStructureCache, persistence);
     }
-
-
 }

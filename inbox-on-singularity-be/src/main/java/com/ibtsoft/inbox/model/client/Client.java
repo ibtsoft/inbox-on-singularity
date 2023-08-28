@@ -1,14 +1,14 @@
 package com.ibtsoft.inbox.model.client;
 
-import com.ibtsoft.singularity.core.Entity;
+import com.ibtsoft.singularity.core.repository.entity.EntityRef;
 import com.singularity.security.User;
 
 public class Client {
 
     private String name;
-    private Entity<User> user;
+    private EntityRef<User> user;
 
-    public Client(String name, Entity<User> user) {
+    public Client(String name, EntityRef<User> user) {
         this.name = name;
         this.user = user;
     }
@@ -17,7 +17,7 @@ public class Client {
         return name;
     }
 
-    public Entity<User> getUser() {
+    public EntityRef<User> getUser() {
         return user;
     }
 

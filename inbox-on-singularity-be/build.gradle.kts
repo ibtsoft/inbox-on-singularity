@@ -5,14 +5,14 @@ plugins {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
     mavenLocal()
 }
 
 dependencies {
-    implementation("com.ibtsoft:singularity-core:0.0.1-SNAPSHOT")
-    implementation("com.ibtsoft:singularity-security:0.0.1-SNAPSHOT")
-    implementation("com.ibtsoft:singularity-web:0.0.1-SNAPSHOT")
+    implementation("com.singularity:singularity-core:0.0.1-SNAPSHOT")
+    implementation("com.singularity:singularity-security:0.0.1-SNAPSHOT")
+    implementation("com.singularity:singularity-web:0.0.1-SNAPSHOT")
 
     implementation("com.google.guava:guava:27.0.1-jre")
 
@@ -24,6 +24,9 @@ application {
     mainClassName = "com.ibtsoft.inbox.main.InboxSocketIoApplication"
 }
 
+java.sourceCompatibility = JavaVersion.VERSION_11
+java.targetCompatibility = JavaVersion.VERSION_11
+
 tasks.jar {
     manifest {
         attributes(
@@ -32,7 +35,7 @@ tasks.jar {
                 "Implementation-Version" to archiveVersion
         )
     }
-    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+    //from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
 }
 
 docker {
